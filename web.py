@@ -15,26 +15,18 @@ def addition():
     elif request.method == "POST":
         a = request.form.get('plus1', 0)
         b = request.form.get('plus2', 0)
-        c =0
-        for i in range(a):
-            c+=1
-        for i in range(b):
-            c+=1
+        c = int(a) + int(b)
         return render_template('plused.html', a=a, b=b, c=c)
 
     
 @app.route('/minus', methods=["GET", "POST"])
 def minus():
-    if request.method == "GET":
+    if request.method == "GET":  # returns form for subtraction
         return render_template('plus.html')
     elif request.method == "POST":
         a = request.form.get('minus1', 0)
         b = request.form.get('minus2', 0)
-        c = 0
-        for i in range(a):
-            c+=1
-        for i in range(b):
-            c-=1
+        c = int(a) - int(b)
         return render_template('minused.html', a=a, b=b, c=c)
 
     
