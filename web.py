@@ -37,6 +37,17 @@ def minus():
             c-=1
         return render_template('minused.html', a=a, b=b, c=c)
 
+    
+@app.route('/times', methods=["GET", "POST"])
+def times():
+    if request.method == "GET":
+        return render_template('times.html')
+    elif request.method == "POST":
+        a = request.form.get('times1', 0)
+        b = request.form.get('times2', 0)
+        c = a * b
+        return render_template('minused.html', a=a, b=b, c=c)
+
 
 if __name__ == "__main__":
     app.run()
